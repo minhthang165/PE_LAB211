@@ -1,0 +1,39 @@
+package Model;
+
+import java.util.Date;
+
+public class Vacation extends Registration {
+    private String vacationID;
+    private int bound;
+
+    public Vacation(String empID, String regisID, Date regisDate, Date startDate, Date endDate, String info, String vacationID, int bound, String location) {
+        super(empID, regisID, regisDate, startDate, endDate, info, location);
+        this.vacationID = vacationID;
+        this.bound = bound;
+    }
+
+    public String getVacationID() {
+        return vacationID;
+    }
+
+    public void setVacationID(String vacationID) {
+        this.vacationID = vacationID;
+    }
+
+    public int getBound() {
+        return bound;
+    }
+
+    public void setBound(int bound) {
+        this.bound = bound;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Vacation{" +
+                "vacationID='" + vacationID + '\'' +
+                ", bound=" + bound +
+                '}';
+    }
+}
