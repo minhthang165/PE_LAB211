@@ -15,8 +15,8 @@ public class Controller extends Menu<String> {
     private static final String MENU_TITLE = "MENU";
     private static final String[] STAFF_MENU_OPTIONS = { "Register a schedule", "View all notifications", "View all schedules", "Edit your information", "Log out" };
     Validation val = new Validation();
-    registerService rs = new registerService();
-    notificationService ns = new notificationService();
+    RegisterService rs = new RegisterService();
+    NotificationService ns = new NotificationService();
     public Controller() {
         super(MENU_TITLE, STAFF_MENU_OPTIONS);
     }
@@ -34,9 +34,10 @@ public class Controller extends Menu<String> {
                 break;
             case 3:
                 //view schedule by time
-                Date startDate = val.getAndCheckDate("Enter start date");
-                Date endDate = val.getAndCheckDate("Enter end date: ");
-                rs.viewByTime(startDate, endDate);
+                rs.viewRegister();
+//                Date startDate = val.getAndCheckDate("Enter start date");
+//                Date endDate = val.getAndCheckDate("Enter end date: ");
+//                rs.viewByTime(startDate, endDate);
                 break;
             case 4:
                 //Manage information about Users, Department, Meeting Rooms, Personnel

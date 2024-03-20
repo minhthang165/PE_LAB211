@@ -1,28 +1,30 @@
 package service;
 
 import Model.Notification;
-import Model.Registration;
 import repository.NotificationRepository;
-import repository.RegisterRepository;
 import view.Validation;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
 
-public class notificationService {
+public class NotificationService {
     ArrayList<Notification> notiList = new ArrayList<>();
     NotificationRepository nr = new NotificationRepository();
     Validation val;
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-    public notificationService(){
-        notiList = nr.readFile();
+    public NotificationService(){
+        nr.readFile(notiList);
     }
 
     public void viewNotifications(){
-        System.out.println(notiList);
+        for(Notification noti : notiList){
+            System.out.println(noti);
+        }
+    }
+
+    public static void main(String[] args) {
+        NotificationService ns = new NotificationService();
+        ns.viewNotifications();
     }
 }

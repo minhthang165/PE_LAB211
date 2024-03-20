@@ -21,25 +21,19 @@ public class StudyRepository {
     public StudyRepository() {
     }
 
-    public ArrayList<Study> readFile() {
+    public void readFile(ArrayList<Study> studies) {
         String line;
         try {
             BufferedReader input = new BufferedReader(new FileReader(srcPath + studyPath));
-            ArrayList<Study> studies = new ArrayList<>();
             while((line = input.readLine())!= null){
                 String[] attributes = line.split(";");
-                for (int i = 0; i < attributes.length; i++) {
-                    attributes[i] = attributes[i].trim();
-                }
                 Study study = new Study(attributes[0], attributes[1], sdf.parse(attributes[2]), sdf.parse(attributes[3]), sdf.parse(attributes[4]),
                         attributes[5], attributes[6], attributes[7], LocalTime.parse(attributes[8]), LocalTime.parse(attributes[9]));
                 studies.add(study);
             }
-            return studies;
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
-            return null;
         }
     }
 }

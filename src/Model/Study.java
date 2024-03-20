@@ -41,10 +41,16 @@ public class Study extends Registration{
 
     @Override
     public String toString() {
-        return "Study{" +
-                "studyID='" + studyID + '\'' +
-                ", startStudyTime=" + startStudyTime +
-                ", endStudyTime=" + endStudyTime +
-                '}';
+        return "Study: " +
+                "studyID: " + studyID  +
+                ", Start Time: " + startStudyTime +
+                ", End Time: " + endStudyTime;
+    }
+
+    @Override
+    public void showMe() {
+        System.out.println(super.toString() + ", Study ID: " + studyID +
+                "Start Time: " + startStudyTime +
+                "End Time: " + endStudyTime);
     }
 }

@@ -21,23 +21,17 @@ public class MeetingLocationRepository {
     public MeetingLocationRepository() {
     }
 
-    public ArrayList<MeetingLocation> readFile() {
+    public void readFile(ArrayList<MeetingLocation> meetingLocates) {
         String line;
         try {
             BufferedReader input = new BufferedReader(new FileReader(srcPath + meetingLocatePath));
-            ArrayList<MeetingLocation> meetingLocates = new ArrayList<>();
             while ((line = input.readLine()) != null) {
                 String[] attributes = line.split(";");
-                for (int i = 0; i < attributes.length; i++) {
-                    attributes[i] = attributes[i].trim();
-                }
                 MeetingLocation meetingLocate = new MeetingLocation(attributes[0], attributes[1]);
                 meetingLocates.add(meetingLocate);
             }
-            return meetingLocates;
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            return null;
         }
     }
 }

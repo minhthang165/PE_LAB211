@@ -21,24 +21,18 @@ public class MeetingRepository {
     public MeetingRepository() {
     }
 
-    public ArrayList<Meetings> readFile() {
+    public void readFile(ArrayList<Meetings> meetings) {
         String line;
         try {
             BufferedReader input = new BufferedReader(new FileReader(srcPath + meetingPath));
-            ArrayList<Meetings> meetings = new ArrayList<>();
             while ((line = input.readLine()) != null) {
                 String[] attributes = line.split(";");
-                for (int i = 0; i < attributes.length; i++) {
-                    attributes[i] = attributes[i].trim();
-                }
                 Meetings meeting = new Meetings(attributes[0], sdf.parse(attributes[1]), sdf.parse(attributes[2]), sdf.parse(attributes[3]),
                         attributes[4], attributes[5], LocalTime.parse(attributes[6]), LocalTime.parse(attributes[7]));
                 meetings.add(meeting);
             }
-            return meetings;
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            return null;
         }
     }
 }

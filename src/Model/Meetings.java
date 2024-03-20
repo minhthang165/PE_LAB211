@@ -51,10 +51,17 @@ public class Meetings extends Registration{
 
     @Override
     public String toString() {
-        return "Meetings{" +
-                "meetingID='" + meetingID + '\'' +
-                ", startMeetingTime=" + startMeetingTime +
-                ", endMeetingTime=" + endMeetingTime +
-                '}';
+        return "Meetings: " +
+                "Meeting ID: " + meetingID +
+                ", Start Time:" + startMeetingTime +
+                ", End Time: " + endMeetingTime +
+                ", locate ID: " + locateID;
+    }
+
+    @Override
+    public void showMe() {
+        System.out.println(super.toString() + ", Meeting ID: " + meetingID +
+                "Start Time: " + startMeetingTime +
+                "End Time: " + endMeetingTime);
     }
 }

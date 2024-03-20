@@ -44,4 +44,12 @@ public class Notification {
     public void setInfo(String info) {
         this.info = info;
     }
+
+    @Override
+    public String toString() {
+        return  "notiID: " + notiID +
+                ", personNoticeID: " + personNoticeID +
+                ", personNoticedID: " + personNoticedID +
+                ", info: " + info;
+    }
 }

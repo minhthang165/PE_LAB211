@@ -105,14 +105,13 @@ public abstract class Registration {
 
     @Override
     public String toString() {
-        return "Registration.txt{" +
-                "regisID='" + regisID + '\'' +
-                ", regisType='" + regisType + '\'' +
-                ", regisDate=" + regisDate +
-                ", startDate=" + startDate +
-                ", endDate=" + endDate +
-                ", info='" + info + '\'' +
-                ", location='" + location + '\'' +
-                '}';
+        return  " regisID" + regisID +
+                ", regisType" + regisType  +
+                ", regisDate" + regisDate +
+                ", startDate" + startDate +
+                ", endDate" + endDate +
+                ", info" + info +
+                ", location" + location;
     }
+    public abstract void showMe();
 }

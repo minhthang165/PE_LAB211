@@ -30,9 +30,14 @@ public class Work extends Registration{
 
     @Override
     public String toString() {
-        return "Work{" +
-                "workID='" + workID + '\'' +
-                ", vehicle='" + vehicle + '\'' +
-                '}';
+        return "Work: " +
+                "workID: " + workID+
+                ", vehicle: " + vehicle;
+    }
+
+    @Override
+    public void showMe() {
+        System.out.println(super.toString() + ", Work ID: " + workID +
+                "Vehicle:  " + vehicle);
     }
 }

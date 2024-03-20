@@ -12,7 +12,7 @@ public class EmployeeService {
     EmployeeRepository er = new EmployeeRepository();
     public EmployeeService(){
         val = new Validation();
-        employeeList = er.readFile();
+        er.readFile(employeeList);
     }
 
     public void addNewEmployee(){

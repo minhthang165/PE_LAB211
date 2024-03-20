@@ -31,9 +31,14 @@ public class Vacation extends Registration {
 
     @Override
     public String toString() {
-        return "Vacation{" +
-                "vacationID='" + vacationID + '\'' +
-                ", bound=" + bound +
-                '}';
+        return "Vacation: " +
+                "vacationID: " + vacationID +
+                ", bound: " + bound;
+    }
+
+    @Override
+    public void showMe() {
+        System.out.println(super.toString() + ", Vacation ID: " + vacationID +
+                "Bound: " + bound);
     }
 }

@@ -18,11 +18,10 @@ public class RegisterRepository {
     public RegisterRepository() {
     }
 
-    public ArrayList<Registration> readFile() {
+    public void readFile(ArrayList<Registration> regises) {
         String line;
         try {
             BufferedReader input = new BufferedReader(new FileReader(srcPath + regisPath));
-            ArrayList<Registration> regises = new ArrayList<>();
             while ((line = input.readLine()) != null) {
                 String[] attributes = line.split(",");
                 for (int i = 0; i < attributes.length; i++) {
@@ -30,7 +29,7 @@ public class RegisterRepository {
                 }
                 // Kiểm tra loại đăng ký và khởi tạo đối tượng tương ứng
                 Registration regis;
-                String regisType = attributes[2];
+                String regisType = attributes[2].trim();
                 switch (regisType) {
                     case "Meeting":
                         regis = new Meetings(attributes[1], sdf.parse(attributes[3]), sdf.parse(attributes[4]),
@@ -54,11 +53,13 @@ public class RegisterRepository {
                         continue;
                 }
                 regises.add(regis);
+
             }
-            return regises;
-        } catch (Exception e) {
+        }catch (Exception e) {
             System.out.println(e.getMessage());
-            return null;
         }
     }
 }
+
+
+

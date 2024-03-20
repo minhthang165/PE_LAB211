@@ -15,7 +15,7 @@ public class MeetingRoomService {
     MeetingLocationRepository mlr = new MeetingLocationRepository();
     public MeetingRoomService(){
         val = new Validation();
-        meetingLocationList = mlr.readFile();
+        mlr.readFile(meetingLocationList);
     }
 
     public void addNewRoom(){

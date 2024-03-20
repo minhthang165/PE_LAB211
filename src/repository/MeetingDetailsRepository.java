@@ -20,23 +20,17 @@ public class MeetingDetailsRepository {
     public MeetingDetailsRepository() {
     }
 
-    public ArrayList<MeetingDetails> readFile() {
+    public void readFile(ArrayList<MeetingDetails> meetingDetails) {
         String line;
         try {
             BufferedReader input = new BufferedReader(new FileReader(srcPath));
-            ArrayList<MeetingDetails> meetingDetails = new ArrayList<>();
             while ((line = input.readLine()) != null) {
                 String[] attributes = line.split(";");
-                for (int i = 0; i < attributes.length; i++) {
-                    attributes[i] = attributes[i].trim();
-                }
                 MeetingDetails meetingDetail = new MeetingDetails(attributes[0], attributes[1], attributes[2], attributes[3]);
                 meetingDetails.add(meetingDetail);
             }
-            return meetingDetails;
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            return null;
         }
     }
 }

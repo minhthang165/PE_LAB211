@@ -14,7 +14,7 @@ public class MeetingDetailsService {
 
     private MeetingDetailsService(){
         val = new Validation();
-        meetingDetailList = mdr.readFile();
+        mdr.readFile(meetingDetailList);
     }
 
     public void addNewMeetingDetails(){

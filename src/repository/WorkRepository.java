@@ -18,25 +18,19 @@ public class WorkRepository {
     public WorkRepository() {
     }
 
-    public ArrayList<Work> readFile() {
+    public void readFile(ArrayList<Work> works) {
         String line;
         try {
             BufferedReader input = new BufferedReader(new FileReader(srcPath + workPath));
-            ArrayList<Work> works = new ArrayList<>();
             while((line = input.readLine())!= null){
                 String[] attributes = line.split(";");
-                for (int i = 0; i < attributes.length; i++) {
-                    attributes[i] = attributes[i].trim();
-                }
                 Work work = new Work(attributes[0], attributes[1], sdf.parse(attributes[2]), sdf.parse(attributes[3]), sdf.parse(attributes[4]),
                                     attributes[5], attributes[6], attributes[7], attributes[8]);
                 works.add(work);
             }
-            return works;
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
-            return null;
         }
     }
 }

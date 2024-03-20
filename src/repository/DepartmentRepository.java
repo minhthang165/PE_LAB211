@@ -17,24 +17,18 @@ public class DepartmentRepository {
     public DepartmentRepository() {
     }
 
-    public ArrayList<Department> readFile() {
+    public void readFile(ArrayList<Department> departs) {
         String line;
         try {
             BufferedReader input = new BufferedReader(new FileReader(srcPath + departmentPath));
-            ArrayList<Department> departs = new ArrayList<>();
             while((line = input.readLine())!= null){
                 String[] attributes = line.split(";");
-                for (int i = 0; i < attributes.length; i++) {
-                    attributes[i] = attributes[i].trim();
-                }
                 Department depart = new Department(attributes[0], attributes[1]);
                 departs.add(depart);
             }
-            return departs;
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
-            return null;
         }
     }
 }

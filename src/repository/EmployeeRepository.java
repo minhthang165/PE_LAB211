@@ -20,23 +20,17 @@ public class EmployeeRepository {
     public EmployeeRepository() {
     }
 
-    public ArrayList<Employee> readFile() {
+    public void readFile(ArrayList<Employee> employees) {
         String line;
         try {
             BufferedReader input = new BufferedReader(new FileReader(srcPath + employeePath));
-            ArrayList<Employee> employees = new ArrayList<>();
             while ((line = input.readLine()) != null) {
                 String[] attributes = line.split(";");
-                for (int i = 0; i < attributes.length; i++) {
-                    attributes[i] = attributes[i].trim();
-                }
                 Employee employee = new Employee(attributes[0], attributes[1], attributes[2]);
                 employees.add(employee);
             }
-            return employees;
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            return null;
         }
     }
 }

@@ -13,7 +13,7 @@ public class DepartmentService {
 
     public DepartmentService(){
         val = new Validation();
-        departmentList = dr.readFile();
+        dr.readFile(departmentList);
     }
 
     public void addNewDepartment(){
@@ -39,7 +39,7 @@ public class DepartmentService {
     //delete department
     public void deleteDepartment(Department department){
         departmentList.remove(department);
-        System.out.println("Delete Succesfully");
+        System.out.println("Delete Successfully");
     }
 
     //update department

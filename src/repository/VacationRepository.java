@@ -18,25 +18,19 @@ public class VacationRepository {
     public VacationRepository() {
     }
 
-    public ArrayList<Vacation> readFile() {
+    public void readFile(ArrayList<Vacation> vacations) {
         String line;
         try {
             BufferedReader input = new BufferedReader(new FileReader(srcPath + vacationPath));
-            ArrayList<Vacation> vacations = new ArrayList<>();
             while((line = input.readLine())!= null){
                 String[] attributes = line.split(";");
-                for (int i = 0; i < attributes.length; i++) {
-                    attributes[i] = attributes[i].trim();
-                }
                 Vacation vacation = new Vacation(attributes[0], attributes[1], sdf.parse(attributes[2]), sdf.parse(attributes[3]), sdf.parse(attributes[4]),
                         attributes[5], attributes[6], Integer.parseInt(attributes[7]), attributes[8]);
                 vacations.add(vacation);
             }
-            return vacations;
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
-            return null;
         }
     }
 }

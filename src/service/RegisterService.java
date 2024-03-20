@@ -4,21 +4,42 @@ import Model.*;
 import repository.RegisterRepository;
 import view.Validation;
 
-import java.awt.image.renderable.RenderableImage;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.*;
 
-public class registerService {
+public class RegisterService {
     ArrayList<Registration> regisList = new ArrayList<>();
     Validation val;
     RegisterRepository rr = new RegisterRepository();
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-    public registerService(){
+    static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    public RegisterService(){
         val = new Validation();
-        regisList = rr.readFile();
+        rr.readFile(regisList);
     }
 
+    public void viewRegister(){
+        for(Registration regis: regisList){
+//            if(regis.getRegisType().equalsIgnoreCase("Meeting")){
+//                Meetings meeting = (Meetings) regis;
+//                meeting.showMe();
+//            }
+//            if(regis.getRegisType().equalsIgnoreCase("Work")){
+//                Work work = (Work) regis;
+//                work.showMe();
+//            }
+//            if (regis.getRegisType().equalsIgnoreCase("Study")){
+//                Study study = (Study) regis;
+//                study.showMe();
+//            }
+//            if(regis.getRegisType().equalsIgnoreCase("Vacation")){
+//                Vacation vacation = (Vacation) regis;
+//                vacation.showMe();
+//            }
+            System.out.println(regis);
+        }
+    }
     public void addNewRegister(){
         Registration regis = null;
         String empID = val.getAndValidString("Enter employee ID: ");
@@ -103,4 +124,13 @@ public class registerService {
         Collections.sort(statisticSchedule, Comparator.comparing(Registration :: getStartDate));
         return statisticSchedule;
     }
+
+    public static void main(String[] args) throws ParseException {
+        RegisterService rs = new RegisterService();
+//        rs.viewRegister();
+        Date startDate = sdf.parse("2024-03-18");
+        Date endDate = sdf.parse("2024-03-20");
+         rs.viewByTime(startDate, endDate);
+    }
+
 }

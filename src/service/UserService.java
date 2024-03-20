@@ -14,7 +14,7 @@ public class UserService {
 
     public UserService(){
         val = new Validation();
-        userList = ur.readFile();
+        ur.readFile(userList);
     }
 
     public void addNewUser(){
