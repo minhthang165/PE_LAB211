@@ -1,5 +1,6 @@
 package service;
 
+import Model.Department;
 import Model.MeetingDetails;
 import Model.MeetingLocation;
 import repository.MeetingLocationRepository;
@@ -12,7 +13,7 @@ public class MeetingRoomService {
     ArrayList<MeetingLocation> meetingLocationList = new ArrayList<>();
     Validation val;
     MeetingLocationRepository mlr = new MeetingLocationRepository();
-    private MeetingRoomService(){
+    public MeetingRoomService(){
         val = new Validation();
         meetingLocationList = mlr.readFile();
     }
@@ -34,5 +35,20 @@ public class MeetingRoomService {
         }
         System.out.println("Can not find that room!");
         return null;
+    }
+
+    //delete location
+    public void deleteMeetingLocation(MeetingLocation location){
+        meetingLocationList.remove(location);
+        System.out.println("Delete Succesfully");
+    }
+
+    //update room
+    public void updateMeetingLocation(MeetingLocation location){
+        String locateID = val.getAndValidString("Enter new locate ID ");
+        String roomName = val.getAndValidString("Enter new room name");
+        location.setLocateID(locateID);
+        location.setLocation(roomName);
+        System.out.println("Update successfully");
     }
 }

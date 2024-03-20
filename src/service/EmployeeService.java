@@ -10,7 +10,7 @@ public class EmployeeService {
     ArrayList<Employee> employeeList = new ArrayList<>();
     Validation val;
     EmployeeRepository er = new EmployeeRepository();
-    private EmployeeService(){
+    public EmployeeService(){
         val = new Validation();
         employeeList = er.readFile();
     }
@@ -34,5 +34,22 @@ public class EmployeeService {
         }
         System.out.println("Can not find that Employee");
         return null;
+    }
+
+    //delete employee
+    public void deleteEmployee(Employee employee){
+        employeeList.remove(employee);
+        System.out.println("Delete successfully");
+    }
+
+    //update employee
+    public void updateEmployee(Employee employee){
+        String empID = val.getAndValidString("Enter new employee ID ");
+        String departmentID = val.getAndValidString("Enter new department ID: ");
+        String empName = val.getAndValidString("Enter employee name: ");
+        employee.setEmpID(empID);
+        employee.setDepartmentID(departmentID);
+        employee.setEmpName(empName);
+        System.out.println("Update successfully");
     }
 }

@@ -59,5 +59,6 @@ public class UserService {
         updateUser.setUserName(userName);
         updateUser.setPassword(password);
         updateUser.setLevel(level);
+        System.out.println("Update successfully");
     }
 }

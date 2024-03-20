@@ -11,7 +11,7 @@ public class DepartmentService {
     DepartmentRepository dr = new DepartmentRepository();
     Validation val;
 
-    private DepartmentService(){
+    public DepartmentService(){
         val = new Validation();
         departmentList = dr.readFile();
     }
@@ -23,6 +23,7 @@ public class DepartmentService {
         departmentList.add(department);
     }
 
+
     //find by ID
     public Department findDepartmentByID(String depID){
         for(Department department: departmentList){
@@ -30,10 +31,23 @@ public class DepartmentService {
                 System.out.println(department);
                 return department;
             }
-            else{
-                System.out.println("Can not find that Department!");
-            }
         }
+        System.out.println("Can not find that department");
         return null;
+    }
+
+    //delete department
+    public void deleteDepartment(Department department){
+        departmentList.remove(department);
+        System.out.println("Delete Succesfully");
+    }
+
+    //update department
+    public void updateDepartment(Department department){
+        String departmentID = val.getAndValidString("Enter new department ID");
+        String departmentName = val.getAndValidString("Enter new department name");
+        department.setDepartmentID(departmentID);
+        department.setDepartmentName(departmentName);
+        System.out.println("Update successfully");
     }
 }
