@@ -51,9 +51,10 @@ public class Meetings extends Registration{
 
     @Override
     public String toString() {
-        return "Meetings: " +
+        return super.toString() +
+                ", Meetings: " +
                 "Meeting ID: " + meetingID +
-                ", Start Time:" + startMeetingTime +
+                ", Start Time: " + startMeetingTime +
                 ", End Time: " + endMeetingTime +
                 ", locate ID: " + locateID;
     }

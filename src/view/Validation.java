@@ -59,7 +59,7 @@ public class Validation {
         while (true) {
             try {
                 input = getValue(msg);
-                if (!(input.matches(stringRegex) && input.matches(intRegex))){
+                if (!(input.matches(stringRegex) || input.matches(intRegex))){
                     System.out.println("Invalid input, please type again!");
                     continue;
                 }

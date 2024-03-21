@@ -1,8 +1,10 @@
 package Model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public abstract class Registration {
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     private String empID;
     private String regisID;
     private String regisType;
@@ -105,13 +107,12 @@ public abstract class Registration {
 
     @Override
     public String toString() {
-        return  " regisID" + regisID +
-                ", regisType" + regisType  +
-                ", regisDate" + regisDate +
-                ", startDate" + startDate +
-                ", endDate" + endDate +
-                ", info" + info +
-                ", location" + location;
+        return  " Regis ID: " + regisID +
+                ", Regis Date: " + sdf.format(regisDate)  +
+                ", Start Date: " + sdf.format(startDate) +
+                ", End Date: " + sdf.format(startDate) +
+                ", Info: " + info +
+                ", Location: " + location;
     }
     public abstract void showMe();
 }

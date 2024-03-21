@@ -128,9 +128,10 @@ public class RegisterService {
     public static void main(String[] args) throws ParseException {
         RegisterService rs = new RegisterService();
 //        rs.viewRegister();
-        Date startDate = sdf.parse("2024-03-18");
-        Date endDate = sdf.parse("2024-03-20");
-         rs.viewByTime(startDate, endDate);
+//        Date startDate = sdf.parse("2024-03-18");
+//        Date endDate = sdf.parse("2024-03-20");
+//         rs.viewByTime(startDate, endDate);
+        rs.addNewRegister();
     }
 
 }

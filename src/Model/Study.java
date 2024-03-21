@@ -41,7 +41,8 @@ public class Study extends Registration{
 
     @Override
     public String toString() {
-        return "Study: " +
+        return super.toString() +
+                ", Study: " +
                 "studyID: " + studyID  +
                 ", Start Time: " + startStudyTime +
                 ", End Time: " + endStudyTime;

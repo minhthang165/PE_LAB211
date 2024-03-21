@@ -30,7 +30,8 @@ public class Work extends Registration{
 
     @Override
     public String toString() {
-        return "Work: " +
+        return super.toString() +
+                ", Work: " +
                 "workID: " + workID+
                 ", vehicle: " + vehicle;
     }

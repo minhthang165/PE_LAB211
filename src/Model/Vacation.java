@@ -31,7 +31,8 @@ public class Vacation extends Registration {
 
     @Override
     public String toString() {
-        return "Vacation: " +
+        return super.toString() +
+                ", Vacation: " +
                 "vacationID: " + vacationID +
                 ", bound: " + bound;
     }
