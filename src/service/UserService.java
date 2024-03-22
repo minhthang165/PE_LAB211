@@ -17,6 +17,13 @@ public class UserService {
         ur.readFile(userList);
     }
 
+    //print list
+    public void viewUser(){
+        for(User user: userList){
+            System.out.println(user);
+        }
+    }
+
     public void addNewUser(){
         User user = null;
         String userID = val.getAndValidString("Enter your user ID: ");
@@ -60,5 +67,10 @@ public class UserService {
         updateUser.setPassword(password);
         updateUser.setLevel(level);
         System.out.println("Update successfully");
+    }
+
+    public static void main(String[] args) {
+        UserService us = new UserService();
+        us.viewUser();
     }
 }

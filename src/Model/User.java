@@ -57,12 +57,10 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "userID='" + userID + '\'' +
-                ", empID='" + empID + '\'' +
-                ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", level='" + level + '\'' +
-                '}';
+        return  "UserID: " + userID +
+                ", EmpID: " + empID +
+                ", User Name: " + userName +
+                ", Password: " + password +
+                ", Level: " + level;
     }
 }

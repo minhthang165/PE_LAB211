@@ -27,10 +27,9 @@ public class MeetingLocation {
 
     @Override
     public String toString() {
-        return "MeetingLocation.txt{" +
-                "locateID='" + locateID + '\'' +
-                ", location='" + location + '\'' +
-                '}';
+        return "MeetingLocation: " +
+                ", Locate ID: " + locateID+
+                ", Location: " + location;
     }
 }
 

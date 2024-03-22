@@ -19,7 +19,7 @@ public class UserRepository {
         try {
             BufferedReader input = new BufferedReader(new FileReader(srcPath + usersPath));
             while((line = input.readLine())!= null){
-                String[] attributes = line.split(";");
+                String[] attributes = line.split(",");
                 User user = new User(attributes[0], attributes[1], attributes[2], attributes[3], attributes[4]);
                 users.add(user);
             }

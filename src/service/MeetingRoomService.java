@@ -18,6 +18,13 @@ public class MeetingRoomService {
         mlr.readFile(meetingLocationList);
     }
 
+    //view meeting room
+    public void viewMeetingRoom(){
+        for(MeetingLocation meetingLocation: meetingLocationList){
+            System.out.println(meetingLocation);
+        }
+    }
+
     public void addNewRoom(){
         String locateID = val.getAndValidString("Enter room ID: ");
         String location = val.getAndValidString("Enter name of room: ");
@@ -50,5 +57,10 @@ public class MeetingRoomService {
         location.setLocateID(locateID);
         location.setLocation(roomName);
         System.out.println("Update successfully");
+    }
+
+    public static void main(String[] args) {
+        MeetingRoomService mrs = new MeetingRoomService();
+        mrs.viewMeetingRoom();
     }
 }

@@ -42,17 +42,17 @@ public class RegisterService {
     }
     public void addNewRegister(){
         Registration regis = null;
-        String empID = val.getAndValidString("Enter employee ID: ");
-        String regisID = val.getAndValidString("Enter regis ID: ");
-        String regisType = val.getAndValidRegisType("Input Registration.txt Type (Meeting/Work/Study/Vacation):");
+        String empID = val.getAndValidEmployeeId("Enter employee ID: ");
+        String regisID = val.getAndValidRegisId("Enter regis ID: ");
+        String regisType = val.getAndValidRegisType("Input Registration Type (Meeting/Work/Study/Vacation):");
 
         //regis vacation
         if(regisType.equalsIgnoreCase("Vacation")){
             Date regisDate = val.getAndCheckDate("Enter Regis Date");
             Date startDate = val.getAndCheckDate("Enter start date off: ");
-            Date endDate = val.getAndCheckDate("Enter end date off: ");
-            String info = val.getAndValidString("Enter info: ");
-            String vacationID = val.getAndValidString("Enter vacation ID: ");
+            Date endDate = val.getAndCheckEndDate("Enter end date off: ", startDate);
+            String info = val.getValue("Enter info: ");
+            String vacationID = val.getAndValidVacationId("Enter vacation ID: ");
             int bound = val.getAndValidInt("Enter bound: ");
             String location = val.getAndValidString("Enter location: ");
             val.warnIfOverlap(empID, startDate);
@@ -63,8 +63,7 @@ public class RegisterService {
         if(regisType.equalsIgnoreCase("Work")){
             Date regisDate = val.getAndCheckDate("Enter Regis Date");
             Date startDate = val.getAndCheckDate("Enter start date off: ");
-            Date endDate = val.getAndCheckDate("Enter end date off: ");
-            String info = val.getAndValidString("Enter info: ");
+            Date endDate = val.getAndCheckEndDate("Enter end date off: ", startDate);            String info = val.getValue("Enter info: ");
             String location = val.getAndValidString("Enter location: ");
             String workID = val.getAndValidString("Enter Work ID: ");
             String vehicle = val.getAndValidString("Enter vehicle: ");
@@ -76,10 +75,10 @@ public class RegisterService {
         if(regisType.equalsIgnoreCase("Study")){
             Date regisDate = val.getAndCheckDate("Enter Regis Date");
             Date startDate = val.getAndCheckDate("Enter start date off: ");
-            Date endDate = val.getAndCheckDate("Enter end date off: ");
-            String info = val.getAndValidString("Enter info: ");
+            Date endDate = val.getAndCheckEndDate("Enter end date off: ", startDate);
+            String info = val.getValue("Enter info: ");
             String location = val.getAndValidString("Enter location: ");
-            String studyID = val.getAndValidString("Enter study ID: ");
+            String studyID = val.getAndValidStudyId("Enter study ID: ");
             LocalTime startStudyTime = val.getTimeValue("Enter Start Study Time: ");
             LocalTime endStudyTime = val.getTimeValue("Enter End Study Time: ");
             val.warnIfOverlap(empID, startDate);
@@ -90,9 +89,9 @@ public class RegisterService {
         if(regisType.equalsIgnoreCase("Meeting")){
             Date regisDate = val.getAndCheckDate("Enter Regis Date");
             Date startDate = val.getAndCheckDate("Enter start date off: ");
-            Date endDate = val.getAndCheckDate("Enter end date off: ");
-            String info = val.getAndValidString("Enter info: ");
-            String meetingID = val.getAndValidString("Enter Meeting ID: ");
+            Date endDate = val.getAndCheckEndDate("Enter end date off: ", startDate);
+            String info = val.getValue("Enter info: ");
+            String meetingID = val.getAndValidMeetingId("Enter Meeting ID: ");
             LocalTime startMeetingTime = val.getTimeValue("Enter Start Meeting Time: ");
             LocalTime endMeetingTime = val.getTimeValue("Enter End Meeting Time: ");
             val.warnIfOverlap(empID, startDate);

@@ -16,6 +16,13 @@ public class DepartmentService {
         dr.readFile(departmentList);
     }
 
+    //view department
+    public void viewDepartment(){
+        for(Department department: departmentList){
+            System.out.println(department);
+        }
+    }
+
     public void addNewDepartment(){
         String depID = val.getAndValidString("Enter new DepartmentID: ");
         String depName = val.getAndValidString("Enter new department name: ");
@@ -49,5 +56,10 @@ public class DepartmentService {
         department.setDepartmentID(departmentID);
         department.setDepartmentName(departmentName);
         System.out.println("Update successfully");
+    }
+
+    public static void main(String[] args) {
+        DepartmentService dp = new DepartmentService();
+        dp.viewDepartment();
     }
 }

@@ -22,7 +22,7 @@ public class DepartmentRepository {
         try {
             BufferedReader input = new BufferedReader(new FileReader(srcPath + departmentPath));
             while((line = input.readLine())!= null){
-                String[] attributes = line.split(";");
+                String[] attributes = line.split(",");
                 Department depart = new Department(attributes[0], attributes[1]);
                 departs.add(depart);
             }

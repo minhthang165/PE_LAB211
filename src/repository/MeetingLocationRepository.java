@@ -26,7 +26,7 @@ public class MeetingLocationRepository {
         try {
             BufferedReader input = new BufferedReader(new FileReader(srcPath + meetingLocatePath));
             while ((line = input.readLine()) != null) {
-                String[] attributes = line.split(";");
+                String[] attributes = line.split(",");
                 MeetingLocation meetingLocate = new MeetingLocation(attributes[0], attributes[1]);
                 meetingLocates.add(meetingLocate);
             }

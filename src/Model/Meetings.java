@@ -62,7 +62,7 @@ public class Meetings extends Registration{
     @Override
     public void showMe() {
         System.out.println(super.toString() + ", Meeting ID: " + meetingID +
-                "Start Time: " + startMeetingTime +
+                "Start Time: " +  startMeetingTime +
                 "End Time: " + endMeetingTime);
     }
 }

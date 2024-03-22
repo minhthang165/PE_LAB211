@@ -11,6 +11,14 @@ public class Validation {
     final String DATE_FORMAT = "yyyy-MM-dd";
     final String stringRegex = "[a-zA-Z]+";
     private final String intRegex = ".*\\d+.*";
+    private final String EMPID_REGEX = "^EMP[0-9]{3}$";
+    private final String REGID_REGEX = "^REG[0-9]{3}$";
+    private final String MEETINGID_REGEX = "^MEET[0-9]{3}$";
+    private final String DEPID_REGEX = "^DEP[0-9]{3}$";
+    private final String VACATIONID_REGEX = "^VAC[0-9]{3}$";
+    private final String USERID_REGEX = "^USR[0-9]{3}$";
+    private final String NOTIFICATIONID_REGEX = "^NT[0-9]{3}$";
+    private final String STUDYID_REGEX = "^STD[0-9]{3}$";
     ArrayList<Registration> schedules = new ArrayList<>();
 
     public String getValue(String msg) {
@@ -18,6 +26,143 @@ public class Validation {
         System.out.println(msg);
         return sc.nextLine().trim();
     }
+
+    //valid Employee ID
+    public String getAndValidEmployeeId(String msg){
+        String input;
+        while(true){
+            try{
+                input = getValue(msg);
+                if(!input.matches(EMPID_REGEX)){
+                    System.out.println("Invalid Employee ID, please type again!");
+                    continue;
+                }
+                return input;
+            }catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    //valid registration id
+    public String getAndValidRegisId(String msg){
+        String input;
+        while(true){
+            try{
+                input = getValue(msg);
+                if(!input.matches(REGID_REGEX)){
+                    System.out.println("Invalid Registration ID, please type again!");
+                    continue;
+                }
+                return input;
+            }catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    //valid meeting id
+    public String getAndValidMeetingId(String msg){
+        String input;
+        while(true){
+            try{
+                input = getValue(msg);
+                if(!input.matches(MEETINGID_REGEX)){
+                    System.out.println("Invalid Meeting ID, please type again!");
+                    continue;
+                }
+                return input;
+            }catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+    //valid department id
+    public String getAndValidDepartmentId(String msg){
+        String input;
+        while(true){
+            try{
+                input = getValue(msg);
+                if(!input.matches(DEPID_REGEX)){
+                    System.out.println("Invalid Department ID, please type again!");
+                    continue;
+                }
+                return input;
+            }catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+
+    //valid vacation
+    public String getAndValidVacationId(String msg){
+        String input;
+        while(true){
+            try{
+                input = getValue(msg);
+                if(!input.matches(VACATIONID_REGEX)){
+                    System.out.println("Invalid Vacation ID, please type again!");
+                    continue;
+                }
+                return input;
+            }catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    //valid user id
+    public String getAndValidUserId(String msg){
+        String input;
+        while(true){
+            try{
+                input = getValue(msg);
+                if(!input.matches(USERID_REGEX)){
+                    System.out.println("Invalid User ID, please type again!");
+                    continue;
+                }
+                return input;
+            }catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    //valid notification id
+    public String getAndValidNotificationId(String msg){
+        String input;
+        while(true){
+            try{
+                input = getValue(msg);
+                if(!input.matches(NOTIFICATIONID_REGEX)){
+                    System.out.println("Invalid Notification ID, please type again!");
+                    continue;
+                }
+                return input;
+            }catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    //valid study ID
+    public String getAndValidStudyId(String msg){
+        String input;
+        while(true){
+            try{
+                input = getValue(msg);
+                if(!input.matches(STUDYID_REGEX)){
+                    System.out.println("Invalid Study ID, please type again!");
+                    continue;
+                }
+                return input;
+            }catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
 
     public void warnIfOverlap(String empID,
                               Date startDate) {
@@ -97,6 +242,28 @@ public class Validation {
                 Date date = sdf.parse(input);
                 if (!validateDateAndMonth(date)) {
                     System.out.println("Invalid date, please input again");
+                    continue;
+                }
+                return date;
+            } catch (ParseException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    //valid end date
+    public Date getAndCheckEndDate(String msg, Date startDate) {
+        String input;
+        while (true) {
+            try {
+                input = getValue(msg);
+                Date date = sdf.parse(input);
+                if (!validateDateAndMonth(date)) {
+                    System.out.println("Invalid date, please input again");
+                    continue;
+                }
+                else if(date.before(startDate)){
+                    System.out.println("Invalid date");
                     continue;
                 }
                 return date;

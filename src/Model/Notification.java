@@ -48,8 +48,8 @@ public class Notification {
     @Override
     public String toString() {
         return  "notiID: " + notiID +
-                ", personNoticeID: " + personNoticeID +
-                ", personNoticedID: " + personNoticedID +
-                ", info: " + info;
+                ", Person NoticeID: " + personNoticeID +
+                ", Person Noticed ID: " + personNoticedID +
+                ", Info: " + info;
     }
 }
